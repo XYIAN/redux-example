@@ -1,7 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import haitReducer from './habit-slice'
-export default configureStore({
+
+const store = configureStore({
     reducer: {
-      habits:haitReducer
-  }
+        habits:haitReducer
+    }
 })
+export type RootState = ReturnType<typeof store.getState>; 
+export type AppDispatch = typeof store.dispatch; 
+
+export default store; 
