@@ -1,19 +1,18 @@
-import store from './store/store'
-import { Provider } from 'react-redux'
-import './App.css'
-import { Container} from '@mui/material'
-import AddHabitForm from './components/AddHabitForm'
+import store from "./store/store";
+import { Provider } from "react-redux";
+import "./App.css";
+import { Container } from "@mui/material";
+import AddHabitForm from "./components/AddHabitForm";
 
 function App() {
-
-  return (  
-   <Provider store={store}> <div>
-      <Container maxWidth='md'>
+  return (
+    <Provider store={store}>
+      <Container maxWidth="md">
         <h2>Redux Example Habit Tracker</h2>
       </Container>
-      <AddHabitForm/>
-    </div></Provider>
-  )
+      <AddHabitForm />
+    </Provider>
+  );
 }
 
-export default App
+export default App;

@@ -18,6 +18,7 @@ const AddHabitForm: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
 
   const handleSubmit = (e: React.FormEvent) => {
+    console.log("submit hit");
     e.preventDefault();
     if (name.trim()) {
       dispatch(
@@ -31,26 +32,28 @@ const AddHabitForm: React.FC = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-      <TextField
-        label="Habit Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <FormControl onSubmit={handleSubmit}>
-        <InputLabel>Frequency</InputLabel>
-        <Select
-          value={frequency}
-          onChange={(e) => setFrequency(e.target.value as "daily" | "weekly")}
-        >
-          <MenuItem value="daily">Daily</MenuItem>
-          <MenuItem value="weekly">Weekly</MenuItem>
-        </Select>
-      </FormControl>
-      <Button type="submit" variant="contained" color="primary">
-        Add Habit
-      </Button>
-    </Box>
+    <form onSubmit={handleSubmit}>
+      <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <TextField
+          label="Habit Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <FormControl>
+          <InputLabel>Frequency</InputLabel>
+          <Select
+            value={frequency}
+            onChange={(e) => setFrequency(e.target.value as "daily" | "weekly")}
+          >
+            <MenuItem value="daily">Daily</MenuItem>
+            <MenuItem value="weekly">Weekly</MenuItem>
+          </Select>
+        </FormControl>
+        <Button type="submit" variant="contained" color="primary">
+          Add Habit
+        </Button>
+      </Box>
+    </form>
   );
 };
 
